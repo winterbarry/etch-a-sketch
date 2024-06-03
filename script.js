@@ -6,9 +6,23 @@ for (let i = 0; i < 252; i++) {
     container.appendChild(newDiv);
 }
 
+function clearDiv() {
+    document.getElementById('container').innerHTML = "";
+}
+
+// function newGrid(userInputRow, userInputColumn) {
+
+// }
+
 let buttonDiv = document.querySelector('button');
 
 buttonDiv.addEventListener('click', function() {
-    let userInput = prompt('please enter number of squares: ');
-    // console.log(userInput)
+    let userInputRow = prompt('please enter number of rows: ');
+    let userInputColumn = prompt('please enter the number of columns: ')
+
+    if ((userInputRow >= 0 && userInputRow <= 100) && (userInputColumn >= 0 && userInputColumn <= 100)) {
+        clearDiv();
+    } else {
+        console.log('invalid number')
+    }
 });
