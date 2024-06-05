@@ -5,12 +5,20 @@
 }
 
 .square {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border: 1px solid black;
 }
 
 .square:hover {
     background-color: aqua;
     transition: all 0s;
+}
+
+.secondSquare {
+    border: 1px solid black;
+}
+
+.secondSquare:hover {
+    background-color: magenta;
 }
