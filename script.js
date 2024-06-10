@@ -1,7 +1,6 @@
-// LOOK AT LAST INSTRUCTION IN STEP 4 WEBPAGE
-
 let container = document.getElementById('container');
 
+// create & append initial grid of square divs
 for (let i = 0; i < 256; i++) {
     let newDiv = document.createElement('div');
     newDiv.classList.add('square');  
@@ -12,13 +11,15 @@ function clearDiv() {
     document.getElementById('container').innerHTML = "";
 }
 
-function newGrid(userInput, userInputDivs) {
-    for (let i = 0; i < userInputDivs; i++) {
+function newGrid(userInput) {
+    let divSize = container.clientWidth / userInput;
+    
+    for (let i = 0; i < userInput * userInput; i++) {
         let newSquare = document.createElement('div');
         newSquare.classList.add('secondSquare');
 
-        newSquare.style.width = `${userInput}px`;
-        newSquare.style.height  = `${userInput}px`;
+        newSquare.style.width = `${divSize}px`;
+        newSquare.style.height  = `${divSize}px`;
 
         container.appendChild(newSquare);
     }
@@ -27,13 +28,13 @@ function newGrid(userInput, userInputDivs) {
 let buttonDiv = document.querySelector('button');
 
 buttonDiv.addEventListener('click', function() {
-    let userInput = prompt('please enter the size of your grid: ');
-    let userInputDivs = prompt('please enter the number of divs: ');
+    let userInput = prompt('please enter the number of squares: ');
+    userInput = parseInt(userInput);
 
     if (userInput >= 0 && userInput <= 100) {
         clearDiv();
-        newGrid(userInput, userInputDivs);
+        newGrid(userInput);
     } else {
-        console.log('invalid number')
+        alert('invalid number. please enter a number between 1 and 100')
     }
 });
